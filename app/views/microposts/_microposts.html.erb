@@ -1,3 +1,4 @@
+
 <ul class="list-unstyled">
   
 <% microposts.each do |micropost| %>
@@ -19,18 +20,20 @@
 <%= micropost.content %>
 </p>
         </div>
-         <div>
           
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                  <div class="btn-group mr-2" role="group" aria-label="First group">
+<%= render 'favorites/like_button', likepost: micropost %> 
+</div>
+    <div class="btn-group mr-2" role="group" aria-label="Second group">
 <% if current_user == micropost.user %>
-
-            
 <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-
-          
 <% end %>
+    </div>
+</div>
 
         </div>
-      </div>
+     
     </li>
   
 <% end %>
